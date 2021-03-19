@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import'package:news_app/models/category_model.dart';
 List<CategoryModel> getCategories()
 {
@@ -6,6 +5,7 @@ List<CategoryModel> getCategories()
   CategoryModel categoryModel=new CategoryModel();
   categoryModel.categoryName="Business";
   categoryModel.imageurl="https://images.unsplash.com/photo-1593642634367-d91a135587b5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80";
+   //image url. 
   category.add(categoryModel);
 
   categoryModel=new CategoryModel();

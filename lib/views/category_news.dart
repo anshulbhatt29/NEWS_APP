@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import'package:flutter/material.dart';
 import 'package:news_app/helper/news.dart';
 import 'package:news_app/models/article_model.dart';
@@ -20,7 +19,7 @@ class _State extends State<CategoryNews> {
   }
   getCategoryNews() async{
     CategoryNewsClass newst=CategoryNewsClass();
-    await newst.getNews(widget.category);
+    await newst.getNews(widget.category);//father. //widget.category.
     articles=newst.news;
     setState(() {
       _loading=false;
@@ -34,34 +33,37 @@ class _State extends State<CategoryNews> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('FLUTTER'),
+            Text('ANIME ',
+              style: TextStyle(
+              color: Colors.cyanAccent
+            ),
+            ),
             Text('NEWS',
             style: TextStyle(
-              color: Colors.blue
+              color: Colors.cyanAccent
             ),
             ),
           ],
           ),
-          actions: [
+       /*   actions: [
             Opacity(
               opacity:0,
               child:Container(
                 padding: EdgeInsets.symmetric(horizontal:16),
                 child:Icon(Icons.save)),
             )
-          ],
+          ],*/
           ),
-          body: _loading ? Center(
+          body: _loading ? Center(//body part display here.
                       child: Container(
               child:CircularProgressIndicator(),
               ),
           ): SingleChildScrollView(
                       child: Container(
                           padding: EdgeInsets.symmetric(horizontal:16),
-              child:Column(
-                children: [
-                  //Blogs
-                    Container(
+             
+                  //Blogs// child:Column( children: [//
+                  child:Container(
                       padding: EdgeInsets.only(top:16),
                       child: ListView.builder(
                         itemCount: articles.length,
@@ -76,18 +78,13 @@ class _State extends State<CategoryNews> {
                             );
                         },
                       ),
-                      )
-
-                ],
+                      ),
                 ) ,
                 ),
-          ),
-
-      
     );
   }
 }
-class BlogTile extends StatelessWidget {
+class BlogTile extends StatelessWidget {//extraxt this widget.
   final String imageurl,title,descp,url;
   BlogTile({this.imageurl,this.title,this.descp,this.url});
 
@@ -95,7 +92,7 @@ class BlogTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap:() {
+      onTap:( ) {
         Navigator.push(context, MaterialPageRoute(
           builder: (context)=>ArticleView(
             blogUrl: url,
